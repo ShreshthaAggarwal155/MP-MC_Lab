@@ -20,7 +20,7 @@ start: mov ax, @data
         display msg1
         mov si, offset string1
         call readstr
-        mov bl, cl              ; store the length of first string
+        mov bl, cl              
         display msg2
         mov si, offset string2
         call readstr
@@ -34,12 +34,12 @@ start: mov ax, @data
         call len_dis
         pop cx
         pop bx
-        cmp cl, bl              ; compare the lengths
-        jne fail                ; if lengths are equal, process next statment
+        cmp cl, bl
+        jne fail
         mov si, offset string1
         mov di, offset string2
         cld
-chk:    mov al, [si]            ; compare both the string
+chk:    mov al, [si]
         cmp al, [di]
         jne fail
         inc si
